@@ -10,12 +10,19 @@ public class Simpson {
             for (int j=0; j<10; j++) tablero[i][j] = pers;
         }
     }
+    public static void imprimirTablero(){
+        for (int i=0; i<10; i++){
+            System.out.println();
+            for (int j=0; j<10; j++)
+                System.out.print(tablero[i][j]);
+        }
+    }
     public static void main(String[] args) {
         System.out.printf("Hello and welcome!");
         // int contador= 0;
         char personaje = '#';
         rellenarTablero(personaje);
         //contador= 10;
-        rellenarTablero(personaje);
+        imprimirTablero();
     }
 }
