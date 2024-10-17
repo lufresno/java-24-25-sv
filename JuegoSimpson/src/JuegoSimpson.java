@@ -12,7 +12,6 @@ public class JuegoSimpson {
     public static int bartFila;
     public static int bartColumna;
     public static int vidasBart;
-    public static boolean meta;
 
     static Random aleatorio= new Random();
     static Scanner leer= new Scanner(System.in);
@@ -95,11 +94,9 @@ public class JuegoSimpson {
                                 break;
                             case 'F':
                                 System.out.println("Enhorabuena, has ganado!!!!!!");
-                                meta = true;
+                                System.exit(0);
                                 break;
                         }
-                    }else{
-
                     }
                     break;
 
@@ -123,7 +120,7 @@ public class JuegoSimpson {
                                 break;
                             case 'F':
                                 System.out.println("Enhorabuena, has ganado!!!!!!");
-                                meta = true;
+                                System.exit(0);
                                 break;
                         }
                     }
@@ -149,7 +146,7 @@ public class JuegoSimpson {
                                 break;
                             case 'F':
                                 System.out.println("Enhorabuena, has ganado!!!!!!");
-                                meta = true;
+                                System.exit(0);
                                 break;
                         }
                     }
@@ -186,7 +183,6 @@ public class JuegoSimpson {
 
 
     public static void main(String[] args) {
-        meta= false;
         vidasBart= 3;
         char movimiento;
 
