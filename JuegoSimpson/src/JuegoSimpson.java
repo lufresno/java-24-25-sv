@@ -3,6 +3,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class JuegoSimpson {
+    private static final char HOMER = 'H';
+    private static final char MURO = 'M';
     //declaramos las variables y funciones que serán importantes y están a nivel programa completo
     public static char [][] tableroSimp= new char[10][10];
     public static final int MAX_FILAS= 10;
@@ -46,33 +48,19 @@ public class JuegoSimpson {
         tableroSimp[bartFila][bartColumna]= 'B';
     }
 
-    public static void cargarObstaculo (int numeroObstaculos, String tipoObstaculo) {
+    public static void cargarObstaculo (int numeroObstaculos, char tipoObstaculo) {
         /* 3º) Queremos una función que nos cargue Homers [H] (10 en total) y Muros [M] (5 en total) siempre y cuando la casilla esté libre (no Bart, no Final).
            Como lo que es el algoritmo (repite esto tantas veces mientras la casilla sea Libre), creo un método general para todos los obstáculos (Homer y Muros).
            Además, si queremos cambiar el número de obstáculos (p.e: ahora quieres 20 Homers), no tenemos que cambiar el código entero, sino el parámetro de entrada y ya.
          */
-        int homerFila, homerColumna, muroFila, muroColumna; //Variables locales porque no harán falta más allá de asignar la posición aquí.
+        int obsFila, obsColumna; //Variables locales porque no harán falta más allá de asignar la posición aquí.
 
-        switch (tipoObstaculo) {
-            case "Homer" :
-                for (int i = 0; i < numeroObstaculos; i++) {
-                    do {
-                        homerFila= aleatorio.nextInt(10);
-                        homerColumna= aleatorio.nextInt(10);
-                    } while (tableroSimp[homerFila][homerColumna]!= 'L');
-                    tableroSimp[homerFila][homerColumna]= 'H';
-                }
-            break;
-
-            case "Muro" :
-                for (int i = 0; i < numeroObstaculos; i++) {
-                    do {
-                        muroFila= aleatorio.nextInt(10);
-                        muroColumna= aleatorio.nextInt(10);
-                    } while (tableroSimp[muroFila][muroColumna]!= 'L');
-                    tableroSimp[muroFila][muroColumna]= 'M';
-                }
-            break;
+        for (int i = 0; i < numeroObstaculos; i++) {
+            do {
+                obsFila= aleatorio.nextInt(10);
+                obsColumna= aleatorio.nextInt(10);
+            } while (tableroSimp[obsFila][obsColumna]!= 'L');
+            tableroSimp[obsFila][obsColumna]= tipoObstaculo;
         }
     }
 
@@ -110,6 +98,8 @@ public class JuegoSimpson {
                                 meta = true;
                                 break;
                         }
+                    }else{
+
                     }
                     break;
 
@@ -202,14 +192,13 @@ public class JuegoSimpson {
 
         llenarLibresTablero();
         cargarBart();
-        cargarObstaculo(10, "Homer");
-        cargarObstaculo(5, "Muro");
+        cargarObstaculo(10, HOMER);
+        cargarObstaculo(5, MURO);
 
         do {
             //1º) Enseñamos tablero
             System.out.println("Esta es la posición actual del tablero: ");
             mostrarTablero();
-
             //2º) Preguntamos qué hace
             System.out.println("¿Qué quieres hacer ahora?");
             movimiento= leer.next().charAt(0);
