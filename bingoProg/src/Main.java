@@ -1,5 +1,4 @@
 import java.util.Random;
-import java.util.Scanner;
 
 public class Main {
     static String[][] matriz= new String[3][9];
@@ -8,12 +7,10 @@ public class Main {
     static final int MAX_COLUMNAS=9;
     static int valor;
 
-    static Scanner leer= new Scanner(System.in);
     static Random aleatorio= new Random();
 
     public static void generarTablero(){
-
-        int decenas= 10;
+        int decenas;
 
         for (int i = 0; i < MAX_FILAS; i++) {
             for (int j = 0; j < MAX_COLUMNAS; j++) {
