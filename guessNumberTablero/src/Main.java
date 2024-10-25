@@ -26,7 +26,6 @@ public class Main {
             }
         }
     }
-
     public static void generarTableroVisible() {
         //2º) Ahora tenemos que rellenar el tablero que sí ve el usuario. Al principio, a falta de que haya acertado el usuario, serán todos libres (XX).
         for (int i = 0; i < MAX_FILAS; i++) {
@@ -35,7 +34,6 @@ public class Main {
             }
         }
     }
-
     public static void mostrarTablero(String[][] tablero) {
         //3º) Creamos la función que imprimirá por consola el tablero deseado.
         for (int i = 0; i < MAX_FILAS; i++) {
@@ -45,7 +43,6 @@ public class Main {
             System.out.println();
         }
     }
-
     public static void pedirNumUsuarios() {
         //4º) Pedimos los números a adivinar al usuario y los guardamos en un array.
         for (int i = 0; i < INTENTOS_USUARIO; i++) {
@@ -53,7 +50,6 @@ public class Main {
             numUsuario[i]= String.valueOf(leer.nextInt());
         }
     }
-
     public static void comprobarNumUsuarios() {
         //5º) Generamos una función que busque cada número del usuario en nuestra matriz de aleatorios. De estar, marcará en la misma posición que se lo ha encontrado originalmente
         //en la matriz que enseñamos al usuario. Así daremos la sensación de haber "revelado" la casilla al adivinarla.
