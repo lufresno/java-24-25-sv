@@ -4,55 +4,60 @@ import static java.lang.Math.abs;
 public class Main {
 
     static int numLineas;
-    static final int numYears= 3;
+    static final int numYears = 3;
     static int[][] cadenaYears;
     static String input;
 
-    static Scanner leer= new Scanner(System.in);
+    static Scanner leer = new Scanner(System.in);
 
     public static void llenarArrays(int numLineas) {
 
-        for (int i = 0; i < numLineas; i++) {//Vamos a leer tantas vueltas como líneas introduzca el usuario (y será la cantidad de líneas de la matriz).
+        for (int i = 0; i < numLineas; i++) {
+            input = leer.nextLine();
 
-            input= leer.nextLine();//Primero, lee en forma de String la entrada.
-
-            if (input.isEmpty()){ //Excluímos el caso de encontrarnos con simplemente un salto de línea o línea vacía.
+            if (input.isEmpty()) {
                 continue;
             }
 
-            //Ahora convertimos nuestro String en una línea de enteros, para poder introducirlos en la matriz.
-            String []partes = input.split(" ");
+            String[] partes = input.split(" ");
 
             for (int j = 0; j < numYears; j++) {
-                cadenaYears[i][j]= Integer.parseInt(partes[j]);
+                cadenaYears[i][j] = Integer.parseInt(partes[j]);
             }
         }
     }
 
-
     public static int medirDistancia(int x, int y) {
-        return abs(x-y);
-    }
-
-    public static String  devolverCercano(int i) {
-        int a= cadenaYears[i][0];
-        int b= cadenaYears[i][1];
-        int c= cadenaYears[i][2];
-
-        if (medirDistancia(a,b) < medirDistancia(b,c)) {
-            return String.valueOf(a);
-        } else if (medirDistancia(c,b) < medirDistancia(a,b)) {
-            return String.valueOf(c);
+        // Excluimos el 0 y contamos posiciones entre los valores
+        if ((x < 0 && y > 0) || (x > 0 && y < 0)) {
+            return Math.abs(x) + Math.abs(y) - 1; // El -1 ignora el cruce por 0
         } else {
-            return "EMPATE";
+            return Math.abs(x - y); // Distancia normal si ambos son positivos o negativos
         }
     }
 
+    public static String devolverCercano(int i) {
+        int a = cadenaYears[i][0];
+        int b = cadenaYears[i][1];
+        int c = cadenaYears[i][2];
+
+        int distanciaA = medirDistancia(a, b);
+        int distanciaC = medirDistancia(c, b);
+
+        if (distanciaA == distanciaC) {
+            return "EMPATE";
+        } else if (distanciaA < distanciaC) {
+            return String.valueOf(a);
+        } else {
+            return String.valueOf(c);
+        }
+    }
+
+
     public static void main(String[] args) {
-        numLineas= leer.nextInt();
+        numLineas = leer.nextInt();
         leer.nextLine();
         cadenaYears = new int[numLineas][numYears];
-
 
         llenarArrays(numLineas);
 
@@ -61,5 +66,4 @@ public class Main {
             System.out.println();
         }
     }
-
 }
