@@ -1,0 +1,116 @@
+/* Base estilos */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilos para la cabecera */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
+
+.logo img {
+    margin-right: 0.5rem;
+    width: 50px;
+    height: 50px;
+}
+
+/* Estilos para el menú de navegación lateral */
+.sidebar {
+    background-color: #0056b3;
+    padding: 1rem;
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    top: 100px; /* altura de la cabecera */
+    left: 0;
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav li {
+    margin-bottom: 1rem;
+}
+
+.nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: block;
+    padding: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.nav a:hover {
+    background-color: #004099;
+    border-radius: 5px;
+}
+
+/* Estilos para el contenido principal */
+.main {
+    margin-left: 220px; /* deja espacio para la barra lateral */
+    padding: 2rem;
+}
+
+.main h2 {
+    color: #007BFF;
+}
+
+/* Estilos para el pie de página */
+.footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    position: relative;
+    margin-left: 220px;
+}
+
+/* Media Queries para pantallas más grandes */
+@media (min-width: 768px) {
+    .header {
+        padding: 1.5rem 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 2rem;
+        margin-left: 220px;
+    }
+
+    .footer {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+}
+
+.main h1 {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

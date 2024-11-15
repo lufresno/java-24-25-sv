@@ -1,0 +1,89 @@
+/* Base estilos */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Estilos para la cabecera */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    margin-right: 0.5rem;
+    width: 50px;
+    height: 50px;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav li {
+    margin: 0 0.5rem;
+}
+
+.nav a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.nav a:hover {
+    background-color: #0056b3;
+    border-radius: 5px;
+}
+
+/* Estilos para el contenido principal */
+.main {
+    padding: 2rem;
+    text-align: center;
+}
+
+.main h2 {
+    color: #007BFF;
+}
+
+/* Estilos para el pie de página */
+.footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Media Queries para pantallas más grandes */
+@media (min-width: 768px) {
+    .header {
+        padding: 1.5rem 2rem;
+    }
+
+    .nav ul {
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .main {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+}
